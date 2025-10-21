@@ -38,7 +38,7 @@ imwrite(X_con, 'con_lena.jpg', 'quality', 70)
 
 %% Power transform image
 X_std = X/max(max(X));
-X_pow = PowImg(X_std, 0, 1, 2);
-X_pow = X_pow/max(max(X_pow));
-imshow(X_pow)
-imwrite(X_pow, 'pow_lena.jpg', 'quality', 70)
+X_pot = PotImg(X_std, 0, 1, 2);
+X_pot = X_pot/max(max(X_pot));
+imshow(X_pot)
+imwrite(X_pot, 'pow_lena.jpg', 'quality', 70)
