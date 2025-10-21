@@ -14,7 +14,7 @@ imwrite(x, 'Lena.bmp', 'bmp')
 
 %% Negative image
 
-X_neg = NegImg(X, 256);
+X_neg = NegImg(X, 255);
 X_neg = X_neg/max(max(X_neg));
 imshow(X_neg)
 figure
@@ -37,7 +37,7 @@ figure
 imwrite(X_con, 'con_lena.jpg', 'quality', 70)
 
 %% Power transform image
-X_std = X/max(max(X));
+
 X_pot = PotImg(X_std, 0, 1, 2);
 X_pot = X_pot/max(max(X_pot));
 imshow(X_pot)
