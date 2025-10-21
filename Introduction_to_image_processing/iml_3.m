@@ -52,5 +52,16 @@ X_pot = X_pot/max(max(X_pot));
 subplot(2, 3, 5)
 imshow(X_pot)
 title("Power transformation")
-
 imwrite(X_pot, 'pow_lena.jpg', 'quality', 70)
+
+%% Testing imtran
+
+trasf = input("Transformation to apply [neg, log, con, pot] :", "s");
+X_tran = imtran(X, trasf);
+% Standardizing the double image
+X_tran = X_tran/max(max(X_tran));
+figure
+
+% Showing the transformed image
+imshow(X_tran)
+title("Transformed image")
