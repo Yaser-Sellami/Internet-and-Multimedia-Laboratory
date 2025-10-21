@@ -6,8 +6,11 @@ x = imread('lena.jpg');
 imshow(x)
 
 X = double(x);
+
+%Creating a subplot for all the images
+subplot(2, 3, 1)
 imshow(X, [])
-figure
+title("Original Image")
 
 imwrite(X, 'lena.bmp', 'bmp')
 imwrite(x, 'Lena.bmp', 'bmp')
@@ -16,29 +19,38 @@ imwrite(x, 'Lena.bmp', 'bmp')
 
 X_neg = NegImg(X, 255);
 X_neg = X_neg/max(max(X_neg));
+subplot(2, 3, 2)
 imshow(X_neg)
-figure
+title("Negative transformation")
+
 imwrite(X_neg, 'neg_lena.jpg', 'quality', 70)
 
 %% Logaritmic transform image
 
 x_log = LogImg(x, 1);
 X_log = x_log/max(max(x_log));
+subplot(2, 3, 3)
 imshow(X_log)
-figure
+title("Logaritmic transformation")
+
 imwrite(X_log, 'log_lena.jpg', 'quality', 70)
 
 %% Contrast trasformation image
 
 x_con = ConImg(x, 0.5, 20);
 X_con = x_con/max(max(x_con));
+subplot(2, 3, 4)
 imshow(X_con)
-figure
+title("Contrast transformation")
+
 imwrite(X_con, 'con_lena.jpg', 'quality', 70)
 
 %% Power transform image
 
 X_pot = PotImg(X_std, 0, 1, 2);
 X_pot = X_pot/max(max(X_pot));
+subplot(2, 3, 5)
 imshow(X_pot)
+title("Power transformation")
+
 imwrite(X_pot, 'pow_lena.jpg', 'quality', 70)
