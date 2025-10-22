@@ -11,7 +11,7 @@ elseif trasf == "pot"
 elseif trasf == "con"
     g = ConImg(f, 0.5, 20);
 else 
-    print("Transformation function not valid")
+    g = "Transformation function not valid";
 end
 
 end
