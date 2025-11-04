@@ -6,7 +6,7 @@ function g = PotImg(f,low_out, high_out, gamma)
 % gamma: Power of the function
 
 % Standardizing the input image between [0,1] and
-% finding low_in, low_out between [0,1] as required by imadjust
+% finding low_in, high_in between [0,1] as required by imadjust
 f = f/max(max(f));
 
 low_in = min(min(f)); % Minimum gray level 
