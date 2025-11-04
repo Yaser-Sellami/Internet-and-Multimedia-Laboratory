@@ -1,15 +1,28 @@
 function g = imtran(f, trasf)
-%f is the input image
-%trasf is the transformation to apply to the input image
+%Input:
+%f: Input image
+f = double(f); % In case not already converted in double form
+%trasf: Transformation to f
 
 if trasf == "neg"
-    g = NegImg(f, 255);
+    L = 256; % Standard number of gray levels
+    g = NegImg(f, L); % Negative transform
+
 elseif trasf == "log"
-    g = LogImg(f, 1);
+    c = input("Enter the constant c: ");
+    g = LogImg(f, c); % Logaritmic transform
+
 elseif trasf == "pot"
-    g = PotImg(f, 0, 1, 2);
+    low_out = 0; % Standard minimum gray intensity
+    high_out = 1; % Standard maximum gray intensity
+    gamma = input("Enter the power gamma: ");
+    g = PotImg(f, low_out, high_out, gamma); % Power transform
+
 elseif trasf == "con"
-    g = ConImg(f, 0.5, 20);
+    m = input("Enter the slope m: ");
+    E = input("Enter the dark-light switch E: ");
+    g = ConImg(f, m, E); % Contrast transform
+    
 else 
     g = "Transformation function not valid";
 end
