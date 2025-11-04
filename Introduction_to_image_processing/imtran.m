@@ -22,9 +22,10 @@ elseif trasf == "con"
     m = input("Enter the slope m: ");
     E = input("Enter the dark-light switch E: ");
     g = ConImg(f, m, E); % Contrast transform
-    
+
 else 
-    g = "Transformation function not valid";
+    disp("Transformation function not valid");
+    g = f % Returning the original image to prevent running errors
 end
 
 end
