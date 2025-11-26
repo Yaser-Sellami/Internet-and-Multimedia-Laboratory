@@ -1,37 +1,27 @@
-function F = fun_GetAudioFeatures(chunk,Nfeatures)
-% Input:
-% chunk: the W matrix from fun_windowing
-% Nfeature: the number of features we want to extract
+% fun_GetAudioFeature 
+% Extract features from the input vector of audio samples
+% INPUT
+%   chunk: vector of audio samples
+%   Nfeatures: number of features to be extracted for each Window (0 -->
+%   all possible features)
+% OUTPUT
+%   Features: matrix of features
 
-[rows, columns] = size(chunk);
-F = zeros(Nfeatures, columns);
+function Features=fun_GetAudioFeatures(WW,Nfeatures)
+% determine the number of samples for each chunk from the length of Window
+[NT,~] = size(WW);
 
-for i = 1:columns
-    % Compute the fft of the column
-    fft_column = fft(chunk(:,i));
-    % Select only the positive frequencies
-    pos_freq = fft_column(1: (floor(rows/2)+1
-    % Compute the power spectrum
-    power_spectrum = abs(pos_freq).^2;
+if Nfeatures ==0, Nfeatures = NT; end
 
-    % Divide the positive frequencies into subbands
-    nBands = 8;
-    dimBands = ceil(length(pos_freq)/nBands);
-    % Sum energy per subband
-    energy = zeros(nBands, 1);
+% computer the FFT for each column of "chunk" 
+FC = fft(WW); 
 
-    for i = 1:nBands
-        bandStart = (i-1)*dimBands + 1;
-        bandEnd = (i)*dimBands;
-        % Check if we don't go out of index bounds
-        if bandEnd > length(power_spectrum)
-            bandEnd = length(power_spectrum);
-        end
-        energy(i) = sum(power_spectrum(bandStart:bandEnd));
-    end
+% Take only the first half of the squared module of the FFT (because of
+% symmetry) 
+Spectr = abs(FC(1:ceil(NT/2),:)).^2;
 
-    % Pick the top Nfeatures subband energies
-    energy = sort(energy);
-    F(:, i) = energy((length(energy)-Nfeatures), length(energy))'; 
-end
-end
+% Sort each column of spectr in descend order
+[~,order]=sort(Spectr,'descend');
+
+% Extract best Nfeatures features for each column
+Features = order(1:min(Nfeatures,NT),:); 
