@@ -11,7 +11,7 @@ X = X/max(max(X));
 h_avg = fspecial("average", 3);
 % Filter the Lena image with the average filter you created using the
 %function imfilter 
-X_avg = imfilter(X, h);
+X_avg = imfilter(X, h_avg);
 %Displaying the image
 figure
 subplot(1,3,1)
@@ -65,7 +65,8 @@ X_noisy = imnoise(X, "salt & pepper");
 % Remove the noise with a median filter
 X_median2 = medfilt2(X);
 X_median3 = medfilt3(X);
-% Display the result of the filtering for different values of filter size 
+% Display the result of the filtering for different values of filter size
+figure
 subplot(2,3,1)
 imshow(X_noisy)
 title("Noisy image")
