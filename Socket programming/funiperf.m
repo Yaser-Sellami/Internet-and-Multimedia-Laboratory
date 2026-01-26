@@ -24,7 +24,7 @@ if S.Connected
     % Stop the timer
     tot_time = toc;
     num_bits = num_bytes*8;
-    speedmeasure = (num_bits/tot_time)*1000; % Speed in kb/s
+    speedmeasure = (num_bits/tot_time)/1000; % Speed in kb/s
     
     % Send to the client the speed
     write(S, speedmeasure, 'double')

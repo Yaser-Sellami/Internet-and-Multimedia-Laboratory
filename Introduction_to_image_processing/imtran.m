@@ -19,8 +19,8 @@ elseif strcmpi(trasf,"pot")
     g = PotImg(f, low_out, high_out, gamma); % Power transform
 
 elseif strcmpi(trasf,"con")
-    m = input("Enter the slope m: ");
-    E = input("Enter the dark-light switch E: ");
+    m = input("Enter the dark-light switch m: ");
+    E = input("Enter the slope E: ");
     g = ConImg(f, m, E); % Contrast transform
 
 else 
