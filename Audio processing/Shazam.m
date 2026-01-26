@@ -5,10 +5,10 @@ clear all
 % Initialization
 %----------------
 % Path to the LIBRARY sound tracks (i.e., music database)
-pathprefixLIBRARY = './music_wav_short/';
+pathprefixLIBRARY = '.\Audio processing\music_wav_short/';
 % Path to the TEST sound clips (music clips to be searched in the LIBRARY
 % for best matching) 
-pathprefixTEST= './music_wav_test/';
+pathprefixTEST= 'Audio processing\music_wav_test\';
 % standard duration of a test clip [seconds]
 cliptime =2.5; 
 % Duration of an audio chunk (Seconds)
@@ -69,7 +69,7 @@ kmax = size(FFeatures,2);
 %% Search clip in the LIBRARY audio tracks
 %-------------------------------------------
 
-ttargetfile = dir([pathprefixLIBRARY,'/*wav']);
+ttargetfile = dir([pathprefixLIBRARY,'*wav']);
 % Initialize the bestscore vector that stores the least mse of the
 % matching between test clip and target audio track
 bestscore=Inf*ones(size(ttargetfile,1),1);
