@@ -263,6 +263,7 @@ X_noise_lowpass = X_noise .* H_lowpass_quad;
 
 % Show the result in the spatial domain
 x_noise_lowpass = ifft2(ifftshift(X_noise_lowpass));
+figure
 subplot(2,2,3)
 imshow(x_noise_lowpass, [])
 title("Low pass filtering")
