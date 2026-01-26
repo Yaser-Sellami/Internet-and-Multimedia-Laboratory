@@ -9,18 +9,18 @@ Repository per gli esercizi e progetti del corso **Internet and Multimedia Labor
 La repository è organizzata in diverse cartelle tematiche:
 
 - **Multimedia_processing/**
-  - Script e funzioni per l'elaborazione di segnali, immagini e video.
-  - Esempi: compressione JPEG, filtraggio, codifica audio/video, DCT, FFT, ecc.
+  - Script e funzioni per l'elaborazione e la compressione di immagini e audio
+  - Esempi: compressione JPEG, smoothing e sharpening filters,  frequency filters con FFT etc.
 - **Networking/**
-  - Script per simulazioni di rete e protocolli multimediali.
-  - 
----
+  - Creazione di socket e gestione di client e server con MATLAB
+- **Progetto finale/**
+  - Creazione di un client e server per testare un'app simile a Shazam
 
 ## 🧠 Obiettivi
 
 Gli script e i progetti di questa repository mirano a:
-- Applicare concetti teorici di **multimedia processing** (compressione, trasmissione, codifica).
-- Simulare protocolli e scenari di **networking multimediale**.
+- Applicare concetti teorici di **multimedia processing** (compressione, filtraggio, elaborazione).
+- Simulare protocolli di trasporto e rapporti client-server di **networking multimediale**.
 - Fornire esempi pratici per l’apprendimento e la sperimentazione in MATLAB.
 
 ---
